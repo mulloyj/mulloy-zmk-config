@@ -111,7 +111,6 @@ outlines:
     - what: rectangle
       where: [key]
       size: [kx,ky]
-      operation: stack
     - what: rectangle
       where: [key_1_5u]
       size: [1.5kx,ky]
@@ -121,3 +120,53 @@ outlines:
     - what: rectangle
       where: [display]
       size: [18, 36]
+    - what: polygon
+      operation: stack
+      points:
+        - ref: matrix_outer_top
+          shift: [-0.5px,+0.5py]
+        - ref: matrix_pinky_top
+          shift: [+0.5px,+0.5py]
+        - ref: matrix_ring_top
+          shift: [-0.5px,+0.5py]
+        - ref: matrix_ring_top
+          shift: [+0.5px,+0.5py]
+        - ref: matrix_middle_top
+          shift: [-0.5px,+0.5py]
+        - ref: matrix_middle_top
+          shift: [+0.5px,+0.5py]
+        - ref: matrix_index_top
+          shift: [-0.5px,+0.5py]
+        - ref: matrix_index_top
+          shift: [+0.5px,+0.5py]
+        - ref: matrix_inner_top
+          shift: [-0.5px,+0.5py]
+        - ref: matrix_inner_top
+          shift: [px + 9.5,+0.5py]
+        - ref: matrix_inner_top
+          shift: [px + 9.5,-2.25py]
+        - ref: thumbfan_far_thumb
+          shift: [0.75px,-0.5py]
+        - ref: thumbfan_far_thumb
+          shift: [-0.75px,-0.5py]
+        - ref: thumbfan_home_thumb
+          shift: [+0.5px,-0.6py]
+        - ref: thumbfan_home_thumb
+          shift: [-0.5px,-0.5py]
+        - ref: thumbfan_near_thumb
+          shift: [-0.5px,-0.5py]
+        - ref: thumbfan_near_thumb
+          shift: [-0.5px,+0.5py]
+        - ref: matrix_middle_bottom
+          shift: [+0.5px,-0.5py]
+        - ref: matrix_middle_bottom
+          shift: [-0.5px,-0.5py]
+        - ref: matrix_ring_bottom
+          shift: [+0.5px,-0.5py]
+        - ref: matrix_ring_bottom
+          shift: [-0.5px,-0.5py]
+        - ref: matrix_pinky_bottom
+          shift: [+0.5px,-0.5py]
+        - ref: matrix_outer_bottom
+          shift: [-0.5px,-0.5py]
+      fillet: 2
