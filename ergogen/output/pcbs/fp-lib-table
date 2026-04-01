@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "ergogen_parts") (type "KiCad") (uri "${KIPRJMOD}/ergogen_parts.pretty") (options "") (descr ""))
+)

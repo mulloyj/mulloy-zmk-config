@@ -1,0 +1,432 @@
+meta:
+  engine: 4.1.0
+  version: 0.1
+  author: mulloy
+
+units:
+  kx: cx
+  ky: cy
+  px: kx + 2
+  py: ky + 2
+points:
+  key.tags:
+    - key
+  zones:
+    matrix:
+      anchor:
+        shift: [100, -100]
+      key:
+        padding: 1py
+        spread: 1px
+      columns:
+        outer:
+          key.column_net: P9
+        pinky:
+          key.column_net: P8
+        ring:
+          key.origin: [-12, -19]
+          key.stagger: 10
+          key.column_net: P16
+        middle:
+          key.stagger: 5
+          key.column_net: P18
+        index:
+          key.stagger: -6
+          key.column_net: P15
+        inner:
+          key.stagger: -2
+          key.column_net: P2
+      rows:
+        bottom:
+          row_net: P5
+        home:
+          row_net: P4
+        top:
+          row_net: P3
+    thumbfan:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [-20, -19]
+      columns:
+        middle:
+          key.column_net: P18
+        index:
+          key.stagger: -2.7
+          key.spread: cx + 2
+          key.splay: -10
+          key.column_net: P15
+        inner:
+          key.width: 1.5kx
+          key.splay: 80
+          key.stagger: 2
+          key.spread: cx + 3.5
+          key.tags:
+            - key_1_5u
+          key.column_net: P2
+      rows:
+        thumb:
+          row_net: P10
+    mcu:
+      key.tags:
+        - helper
+      anchor:
+        - ref: matrix_inner_top
+          shift: [kx/2+18/2+1.6, ky/2-33/2]
+    display:
+      key.tags:
+        - helper
+      anchor:
+        - ref: mcu
+          shift: [0, -3.5]
+    screw_1:
+      key.tags:
+        - helper
+        - screw
+      anchor:
+        aggregate.parts:
+          - ref: matrix_outer_top
+          - ref: matrix_pinky_top
+          - ref: matrix_outer_home
+          - ref: matrix_pinky_home
+    screw_2:
+      key.tags:
+        - helper
+        - screw
+      anchor:
+        aggregate.parts:
+          - ref: matrix_outer_home
+          - ref: matrix_pinky_home
+          - ref: matrix_outer_bottom
+          - ref: matrix_pinky_bottom
+    screw_3:
+      key.tags:
+        - helper
+        - screw
+      anchor:
+        aggregate.parts:
+          - ref: matrix_index_top
+          - ref: matrix_inner_top
+          - ref: matrix_index_home
+          - ref: matrix_inner_home
+    screw_4:
+      key.tags:
+        - helper
+        - screw
+      anchor:
+        aggregate.parts:
+          - ref: matrix_inner_bottom
+          - ref: thumbfan_inner_thumb
+  mirror:
+    ref: thumbfan_inner_thumb
+    distance: 50
+outlines:
+  _keycaps:
+    - what: rectangle
+      where: [key]
+      size: 18
+      fillet: 3
+    - what: rectangle
+      where: [key_1_5u]
+      size: [kx*1.5, ky]
+      fillet: 3
+  _mcu:
+    - what: rectangle
+      where: [mcu]
+      size: [17.78, 33]
+      fillet: 1
+    - what: rectangle
+      where: [mcu]
+      size: [8.94, 7.35]
+      fillet: 0.1
+      operation: stack
+      adjust:
+        shift: [0, 33/2-7.35/2+0.7]
+  _display:
+    - what: rectangle
+      where: [display]
+      size: [14, 36]
+      fillet: 0.5
+    - what: rectangle
+      where: [display]
+      size: [12.82, 2.66]
+      operation: stack
+      fillet: 0.1
+      adjust:
+        shift: [0, -16.7]
+    - what: rectangle
+      where: [display]
+      size: [10.8, 24.6]
+      operation: stack
+      adjust:
+        shift: [0, -0.75]
+  _mcu_cluster:
+    - what: outline
+      name: _mcu
+      operation: stack
+    - what: outline
+      name: _display
+      operation: stack
+  _screw_heads:
+    - what: circle
+      where: [screw]
+      radius: 4.3/2
+  left_pcb_outline:
+    - what: polygon
+      fillet: 2
+      points:
+        - ref: matrix_outer_top
+          shift: [-0.5px - 0.75, +0.5py]
+        - ref: matrix_pinky_top
+          shift: [+0.5px - 0.75, +0.5py]
+        - ref: matrix_ring_top
+          shift: [-0.5px - 0.75, +0.5py]
+        - ref: matrix_ring_top
+          shift: [+0.5px, +0.5py]
+        - ref: matrix_middle_top
+          shift: [-0.5px, +0.5py]
+        - ref: matrix_middle_top
+          shift: [+0.5px + 0.75, +0.5py]
+        - ref: matrix_index_top
+          shift: [-0.5px + 0.75, +0.5py]
+        - ref: matrix_index_top
+          shift: [+0.5px, +0.5py]
+        - ref: matrix_inner_top
+          shift: [-0.5px, +0.5py]
+        - ref: matrix_inner_top
+          shift: [px + 9.5, +0.5py]
+        - ref: matrix_inner_top
+          shift: [px + 9.5, -2.25py]
+        - ref: thumbfan_inner_thumb
+          shift: [0.75px, -0.5py]
+        - ref: thumbfan_inner_thumb
+          shift: [-0.75px, -0.5py]
+        - ref: thumbfan_index_thumb
+          shift: [+0.5px, -0.6py]
+        - ref: thumbfan_index_thumb
+          shift: [-0.5px, -0.5py]
+        - ref: thumbfan_middle_thumb
+          shift: [-0.5px - 0.75, -0.5py]
+        - ref: thumbfan_middle_thumb
+          shift: [-0.5px - 0.75, +0.5py]
+        - ref: matrix_middle_bottom
+          shift: [+0.5px - 0.75, -0.5py]
+        - ref: matrix_middle_bottom
+          shift: [-0.5px, -0.5py]
+        - ref: matrix_ring_bottom
+          shift: [+0.5px, -0.5py]
+        - ref: matrix_ring_bottom
+          shift: [-0.5px, -0.5py]
+        - ref: matrix_pinky_bottom
+          shift: [+0.5px, -0.5py]
+        - ref: matrix_outer_bottom
+          shift: [-0.5px - 0.75, -0.5py]
+  right_pcb_outline:
+    - what: polygon
+      fillet: 2
+      points:
+        - ref: mirror_matrix_outer_top
+          shift: [-0.5px - 0.75, +0.5py]
+        - ref: mirror_matrix_pinky_top
+          shift: [+0.5px - 0.75, +0.5py]
+        - ref: mirror_matrix_ring_top
+          shift: [-0.5px - 0.75, +0.5py]
+        - ref: mirror_matrix_ring_top
+          shift: [+0.5px, +0.5py]
+        - ref: mirror_matrix_middle_top
+          shift: [-0.5px, +0.5py]
+        - ref: mirror_matrix_middle_top
+          shift: [+0.5px + 0.75, +0.5py]
+        - ref: mirror_matrix_index_top
+          shift: [-0.5px + 0.75, +0.5py]
+        - ref: mirror_matrix_index_top
+          shift: [+0.5px, +0.5py]
+        - ref: mirror_matrix_inner_top
+          shift: [-0.5px, +0.5py]
+        - ref: mirror_matrix_inner_top
+          shift: [px + 9.5, +0.5py]
+        - ref: mirror_matrix_inner_top
+          shift: [px + 9.5, -2.25py]
+        - ref: mirror_thumbfan_inner_thumb
+          shift: [0.75px, -0.5py]
+        - ref: mirror_thumbfan_inner_thumb
+          shift: [-0.75px, -0.5py]
+        - ref: mirror_thumbfan_index_thumb
+          shift: [+0.5px, -0.6py]
+        - ref: mirror_thumbfan_index_thumb
+          shift: [-0.5px, -0.5py]
+        - ref: mirror_thumbfan_middle_thumb
+          shift: [-0.5px - 0.75, -0.5py]
+        - ref: mirror_thumbfan_middle_thumb
+          shift: [-0.5px - 0.75, +0.5py]
+        - ref: mirror_matrix_middle_bottom
+          shift: [+0.5px - 0.75, -0.5py]
+        - ref: mirror_matrix_middle_bottom
+          shift: [-0.5px, -0.5py]
+        - ref: mirror_matrix_ring_bottom
+          shift: [+0.5px, -0.5py]
+        - ref: mirror_matrix_ring_bottom
+          shift: [-0.5px, -0.5py]
+        - ref: mirror_matrix_pinky_bottom
+          shift: [+0.5px, -0.5py]
+        - ref: mirror_matrix_outer_bottom
+          shift: [-0.5px - 0.75, -0.5py]
+  mulloy42:
+    - what: rectangle
+      where: [key]
+      size: [kx, ky]
+    - what: rectangle
+      where: [key_1_5u]
+      size: [1.5kx, ky]
+    - what: rectangle
+      where: [mcu, mirror_mcu]
+      size: [18, 33]
+      fillet: 2
+    - what: rectangle
+      where: [display, mirror_display]
+      size: [18, 36]
+    - what: outline
+      operation: stack
+      name: left_pcb_outline
+    - what: outline
+      operation: stack
+      name: right_pcb_outline
+pcbs:
+  mulloy42_left:
+    template: kicad8
+    outlines:
+      - outline: left_pcb_outline
+    footprints:
+      m2_screws:
+        what: ceoloide/mounting_hole_npth
+        where: /screw/
+        params:
+          hole_size: 4.6
+          hole_drill: 2.2
+      choc_hotswap:
+        what: choc
+        where: [key, key_1_5u]
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diodes:
+        what: diode
+        where: [key, key_1_5u]
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+      mcu:
+        what: ceoloide/mcu_nice_nano
+        where: mcu
+        params:
+          reversible: false
+          only_required_jumpers: true
+          use_rectangular_jumpers: false
+      display:
+        what: ceoloide/display_nice_view
+        where: display
+        params:
+          reversible: false
+          invert_jumpers_position: true
+          MOSI: P7
+          SCK: P6
+          CS: P14
+      battery_connector:
+        what: ceoloide/battery_connector_jst_ph_2
+        where: display
+        params:
+          reversible: false
+        adjust:
+          shift: [3, -28]
+          rotate: 270
+      on_off_switch:
+        what: ceoloide/power_switch_smd_side
+        where: matrix_inner_top
+        params:
+          from: BAT_P
+          to: RAW
+          reversible: false
+          invert_behavior: true
+        adjust:
+          shift: [px + 7.25, -2py]
+      reset_switch:
+        what: ceoloide/reset_switch_smd_side
+        where: thumbfan_inner_thumb
+        params:
+          reversible: false
+        adjust:
+          shift: [15, -5]
+          rotate: 238
+  mulloy42_right:
+    template: kicad8
+    outlines:
+      - outline: right_pcb_outline
+    footprints:
+      m2_screws:
+        what: ceoloide/mounting_hole_npth
+        where: /screw/
+        params:
+          hole_size: 4.6
+          hole_drill: 2.2
+      choc_hotswap:
+        what: choc
+        where: [key, key_1_5u]
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diodes:
+        what: diode
+        where: [key, key_1_5u]
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+      mcu:
+        what: ceoloide/mcu_nice_nano
+        where: mirror_mcu
+        params:
+          reversible: false
+          only_required_jumpers: true
+          use_rectangular_jumpers: false
+      display:
+        what: ceoloide/display_nice_view
+        where: mirror_display
+        params:
+          reversible: false
+          invert_jumpers_position: true
+          MOSI: "DA"
+          SCK: "CL"
+      battery_connector:
+        what: ceoloide/battery_connector_jst_ph_2
+        where: mirror_display
+        params:
+          reversible: false
+        adjust:
+          shift: [3, -28]
+          rotate: 270
+      on_off_switch:
+        what: ceoloide/power_switch_smd_side
+        where: mirror_matrix_inner_top
+        params:
+          from: BAT_P
+          to: RAW
+          reversible: false
+        adjust:
+          shift: [px + 7.25, -2py]
+          rotate: 180
+      reset_switch:
+        what: ceoloide/reset_switch_smd_side
+        where: mirror_thumbfan_inner_thumb
+        params:
+          reversible: false
+        adjust:
+          shift: [15, -5]
+          rotate: 238
