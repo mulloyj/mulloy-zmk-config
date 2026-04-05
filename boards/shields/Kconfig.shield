@@ -1,0 +1,5 @@
+config SHIELD_MULLOY42_LEFT
+    def_bool $(shields_list_contains,mulloy42_left)
+
+config SHIELD_MULLOY42_RIGHT
+    def_bool $(shields_list_contains,mulloy42_right)
