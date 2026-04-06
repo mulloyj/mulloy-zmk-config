@@ -402,8 +402,9 @@ pcbs:
         params:
           reversible: false
           invert_jumpers_position: true
-          MOSI: "DA"
-          SCK: "CL"
+          MOSI: P7
+          SCK: P6
+          CS: P14
       battery_connector:
         what: ceoloide/battery_connector_jst_ph_2
         where: mirror_display
