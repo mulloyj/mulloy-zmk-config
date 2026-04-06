@@ -1,5 +1,5 @@
 #include <physical_layouts.dtsi>
-#include <layouts/footstan/corne/6column.dtsi>
+#include <layouts/foostan/corne/6column.dtsi>
 
 &foostan_corne_6col_layout {
     transform = <&default_transform>;
