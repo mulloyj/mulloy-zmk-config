@@ -1,0 +1,17 @@
+if SHIELD_MULLOY42_LEFT
+
+# Name must be less than 16 characters long!
+config ZMK_KEYBOARD_NAME
+    default "Mulloy42"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_MULLOY42_LEFT || SHIELD_MULLOY42_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
