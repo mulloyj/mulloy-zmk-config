@@ -10,7 +10,7 @@
             = <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
 
         col-gpios
@@ -39,7 +39,7 @@
         //         |       |       |LKey 16|LKey 17|LKey 18     RKey 16|Rkey 17|RKey 18
                                     RC(3,1) RC(3,2) RC(3,3)     RC(3,4) RC(3,5) RC(3,6)
         >;
-    }
+    };
 };
 
 / {
