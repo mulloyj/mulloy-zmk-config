@@ -49,6 +49,5 @@
         display-name = "Default Layout";
         kscan = <&kscan0>; // Label of the kscan node, optional if all layouts use the same
         transform = <&default_transform>; // Label of the matrix transform for this layout
-        keys = <42>;
     };
 };
