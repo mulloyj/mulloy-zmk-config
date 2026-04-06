@@ -1,0 +1,8 @@
+#include <physical_layouts.dtsi>
+#include <layouts/footstan/corne/6column.dtsi>
+
+// Assigning suitable kscan and matrix transforms
+&footstan_corne_layout {
+    transform = <&default_transform>;
+    kscan = <&kscan0>;
+};

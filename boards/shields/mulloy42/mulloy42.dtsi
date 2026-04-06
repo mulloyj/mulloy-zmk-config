@@ -1,8 +1,8 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "mulloy42-layouts.dtsi"
 
 / {
     chosen {
-        zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout0;
     };
 
@@ -42,12 +42,5 @@
         //         |       |       |LKey 16|LKey 17|LKey 18     RKey 16|Rkey 17|RKey 18
                                     RC(3,1) RC(3,2) RC(3,3)     RC(3,4) RC(3,5) RC(3,6)
         >;
-    };
-
-    physical_layout0: physical_layout_0 { // First physical layout, use different naming for other layouts
-        compatible = "zmk,physical-layout";
-        display-name = "Default Layout";
-        kscan = <&kscan0>; // Label of the kscan node, optional if all layouts use the same
-        transform = <&default_transform>; // Label of the matrix transform for this layout
     };
 };
