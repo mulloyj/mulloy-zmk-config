@@ -16,7 +16,7 @@
             //                    | MEH | SHFT| ENT |   | BKSP| SPACE| TO 1|
             bindings = <
 &kp ESCAPE  &kp Q           &kp W           &kp E              &kp R             &kp T               &kp Y          &kp U              &kp I            &kp O            &kp P               &kp DELETE
-&caps_word  &mt A LEFT_WIN  &mt S LEFT_ALT  &mt D LCTRL        &mt F LEFT_SHIFT  &kp G               &kp H          &mt J RIGHT_SHIFT  &mt K LCTRL  &mt L RIGHT_ALT  &mt SEMI RIGHT_WIN  &kp SQT
+&caps_word  &mt A LEFT_WIN  &mt S LEFT_ALT  &mt D LCTRL        &mt F LEFT_SHIFT  &kp G               &kp H          &mt J RIGHT_SHIFT  &mt K RCTRL  &mt L RIGHT_ALT  &mt SEMI RIGHT_WIN  &kp SQT
 &kp TAB     &kp Z           &kp X           &kp C              &kp V             &kp B               &kp N          &kp M              &kp COMMA        &kp DOT          &kp FSLH            &kp MINUS
                                             &kp LS(LA(LCTRL))  &kp LEFT_SHIFT    &lt 2 ENTER    &kp BACKSPACE  &kp SPACE          &to 1
             >;
@@ -38,12 +38,12 @@
 
         upper {
             // -----------------------------------------------------------------------------------------
-            // | TRNS | TRNS| TRNS| WinE| CtlW| TAB |   |  +  |  7  |  8  |  9  |  * | TRNS |
+            // | TRNS | TRNS| LALT| WinE| CtlW| TAB |   |  +  |  7  |  8  |  9  |  *  | TRNS |
             // | TRNS |Lt/Ct| DWN | UP  |Rt/Ct|ACtTb|   |  =  |  4  |  5  |  6  | ENT | TRNS |
             // | TRNS | PRT | CtlZ| CtlX| CtCV| CtlA|   |  /  |  1  | 2/, | 3/. | TO 3|  -   |
             //                    | TO 0| SHFT|ACtSf|   | BKSP|  0  | TO 1|
             bindings = <
-&trans  &trans             &trans     &kp LG(E)  &kp LC(W)            &kp TAB                   &kp PLUS       &kp N7        &kp N8               &kp N9               &kp ASTERISK  &trans
+&trans  &trans             &LEFT_ALT  &kp LG(E)  &kp LC(W)            &kp TAB                   &kp PLUS       &kp N7        &kp N8               &kp N9               &kp ASTERISK  &trans
 &trans  &mt LEFT LC(LEFT)  &kp DOWN   &kp UP     &mt RIGHT LC(RIGHT)  &kp LA(LC(TAB))           &kp EQUAL      &kp NUMBER_4  &kp N5               &kp NUMBER_6         &kp ENTER     &trans
 &trans  &kp PRINTSCREEN    &kp LC(Z)  &kp LC(X)  &mt LC(C) LC(V)      &kp LC(A)                 &kp SLASH      &kp NUMBER_1  &mt NUMBER_2 COMMA   &mt NUMBER_3 PERIOD  &to 3         &kp MINUS
                                       &to 0      &kp LEFT_SHIFT       &kp LA(LC(LEFT_SHIFT))    &kp BACKSPACE  &kp N0        &to 1
