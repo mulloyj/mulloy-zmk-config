@@ -30,8 +30,7 @@ behaviors {
         };
     };
 
-/ {
-    macros {
+macros {
         dash_greater: dash_greater {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -45,8 +44,8 @@ behaviors {
             bindings
                 = <&macro_tap &kp EQUAL &kp GREATER_THAN>;
         };
-    };
 };
+
 
 / {
     keymap {
@@ -98,8 +97,8 @@ behaviors {
             // -----------------------------------------------------------------------------------------
             // | TRNS | BT 3| BT 2| BT 1| BT 0|BTCLR|   | F12 |  F7 |  F8 |  F8 | TRNS| TRNS |
             // | TRNS | CAPS| TRNS| MehD| MehF| TRNS|   | F11 |  F4 |  F5 |  F6 | ENT | TRNS |
-            // | TRNS | MehZ| MehX| MehC| MehV| MehB|   | F10 |  F1 |  F2 |  F3 | TRNS| TRNS |'
-            //                    | TO 0| SHFT| CTRL|   | BKSP| TRNS| TO 1|
+            // | TRNS | MehZ| MehX| MehC| MehV| MehB|   | F10 |  F1 |  F2 |  F3 | TRNS| TRNS |
+            //                    | TO 0| SHFT| CTRL|   | BKSP| ENT | TO 1|
             bindings = <
 &trans  &bt BT_SEL 3       &bt BT_SEL 2       &bt BT_SEL 1       &bt BT_SEL 0       &bt BT_CLR           &kp F12        &kp F7    &kp F8  &kp F9  &trans     &bootloader
 &trans  &kp CAPSLOCK       &trans             &kp LS(LA(LC(D)))  &kp LS(LA(LC(F)))  &trans               &kp F11        &kp F4    &kp F5  &kp F6  &trans     &trans
