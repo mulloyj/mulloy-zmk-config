@@ -49,16 +49,16 @@
 &pinctrl {
     spi1_default: spi1_default {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,  // SCK Pin (Pro Micro D6)
-                    <NRF_PSEL(SPIM_MOSI, 1, 0)>,  // MOSI Pin (Pro Micro D7)
+            psels = <NRF_PSEL(SPIM_SCK, 1, 0)>,   // SCK Pin (Pro Micro P6)
+                    <NRF_PSEL(SPIM_MOSI, 0, 11)>, // MOSI Pin (Pro Micro P7)
                     <NRF_PSEL(SPIM_MISO, 0, 17)>; 
         };
     };
 
     spi1_sleep: spi1_sleep {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
-                    <NRF_PSEL(SPIM_MOSI, 1, 0)>,
+            psels = <NRF_PSEL(SPIM_SCK, 1, 0)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 11)>,
                     <NRF_PSEL(SPIM_MISO, 0, 17)>;
             low-power-enable;
         };
@@ -67,8 +67,9 @@
 
 nice_view_spi: &spi1 {
     compatible = "nordic,nrf-spim";
+    status = "okay";
     pinctrl-0 = <&spi1_default>;
     pinctrl-1 = <&spi1_sleep>;
     pinctrl-names = "default", "sleep";
-    cs-gpios = <&pro_micro 14 GPIO_ACTIVE_HIGH>; // CS Pin (Pro Micro D14)
+    cs-gpios = <&pro_micro 14 GPIO_ACTIVE_HIGH>; // CS Pin (Pro Micro P14)
 };
