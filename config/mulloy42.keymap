@@ -151,7 +151,7 @@
         };
 
         function {
-            display_name = "fn"
+            display_name = "fn";
             // -----------------------------------------------------------------------------------------
             // | TRNS | BT 3| BT 2| BT 1| BT 0|BTCLR|   | F12 |  F7 |  F8 |  F8 | TRNS| TRNS |
             // | TRNS | CAPS| TRNS| MehD| MehF| TRNS|   | F11 |  F4 |  F5 |  F6 | ENT | TRNS |
