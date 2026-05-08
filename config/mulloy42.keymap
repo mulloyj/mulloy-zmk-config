@@ -136,7 +136,7 @@
         };
 
         upper {
-            display_name = "num"
+            display_name = "num";
             // -----------------------------------------------------------------------------------------
             // | TRNS | TRNS| LALT| WinE| CtlW| TAB |   |  +  |  7  |  8  |  9  |  *  | TRNS |
             // | TRNS |Lt/Ct| DWN | UP  |Rt/Ct|ACtTb|   |  =  |  4  |  5  |  6  | ENT | TRNS |
