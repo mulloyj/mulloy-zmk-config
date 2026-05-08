@@ -106,7 +106,7 @@
         compatible = "zmk,keymap";
 
         base {
-            display_name = "base";
+            display-name = "base";
             // -----------------------------------------------------------------------------------------
             // |  ESC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | DEL    |
             // |CAPS_W| A/Wn| S/Al| D/Ct| F/Sf|  G  |   |  H  | J/Sf | K/Al| L/Al| ;/Wn|  '/"/` |
@@ -121,8 +121,8 @@
         };
 
         lower {
-            display_name = "sym";
-            // -----------------------------------------------------------------------------------------
+            display-name = "sym";
+            // ----------------------------------------------------------------------------------------
             // | TRNS | TRNS| TRNS|  => |  -> | PG_UP   |   | END |  {  |  }  |  _  | TRNS| TRNS |
             // | TRNS |  &  |  ^  |  ?  |  $  | PG_DOWN |   | \/Hm|  (  |  )  |  :  |  ;  | TRNS |
             // | TRNS |  ~  |  #  |  @  |  <  |  >      |   |  |  |  [  |  ]  | TRNS| TO 3| TRNS |
@@ -136,7 +136,7 @@
         };
 
         upper {
-            display_name = "num";
+            display-name = "num";
             // -----------------------------------------------------------------------------------------
             // | TRNS | TRNS| LALT| WinE| CtlW| TAB |   |  +  |  7  |  8  |  9  |  *  | TRNS |
             // | TRNS |Lt/Ct| DWN | UP  |Rt/Ct|ACtTb|   |  =  |  4  |  5  |  6  | ENT | TRNS |
@@ -151,7 +151,7 @@
         };
 
         function {
-            display_name = "fn";
+            display-name = "fn";
             // -----------------------------------------------------------------------------------------
             // | TRNS | BT 3| BT 2| BT 1| BT 0|BTCLR|   | F12 |  F7 |  F8 |  F8 | TRNS| TRNS |
             // | TRNS | CAPS| TRNS| MehD| MehF| TRNS|   | F11 |  F4 |  F5 |  F6 | ENT | TRNS |
