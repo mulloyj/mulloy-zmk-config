@@ -1,0 +1,14 @@
+file_format: "1"
+id: mulloy42
+name: Mulloy42
+type: shield
+url: https://github.com/foostan/crkbd/
+requires:
+  - nice_nano_v2
+  - nice_view
+features:
+  - keys
+  - display
+siblings:
+  - mulloy42_left
+  - mulloy42_right
