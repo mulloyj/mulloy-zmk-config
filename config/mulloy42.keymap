@@ -109,6 +109,21 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <18 19>;
+            bindings = <&kp TAB>;
+        };
+
+        arrow_layer {
+            timeout-ms = <50>;
+            key-positions = <39 40>;
+            bindings = <&mo 4>;
+        };
+    };
+
 
     keymap {
         compatible = "zmk,keymap";
@@ -133,13 +148,13 @@
             // ----------------------------------------------------------------------------------------
             // | TRNS | TRNS| TRNS|  => |  -> | PG_UP   |   | END |  {  |  }  |  _  | TRNS| TRNS |
             // | TRNS |  &  |  ^  |  ?  |  $  | PG_DOWN |   | \/Hm|  (  |  )  |  :  |  ;  | TRNS |
-            // | TRNS |  ~  |  #  |  @  |  <  |  >      |   |  |  |  [  |  ]  | TRNS| TO 3| TRNS |
-            //                    | TO 0|MSHFT| ENT/NM    |   | BKSP| SPC | TO 2|
+            // | TRNS |  ~  |  #  |  @  |  !  |  </>    |   |  |  |  [  |  ]  | TRNS| TO 3| TRNS |
+            //                    | TO 0|MSHFT| ENT/NM  |   | BKSP| SPC | TO 2|
             bindings = <
-&trans  &trans     &trans     &equals_greater &dash_greater  &kp PAGE_UP      &kp END             &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp UNDERSCORE  &trans         &trans
-&trans  &kp AMPS   &kp CARET  &kp QUESTION    &kp DOLLAR     &kp PAGE_DOWN    &ht HOME BACKSLASH  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON       &kp SEMICOLON  &trans
-&trans  &kp TILDE  &kp HASH   &kp AT_SIGN     &kp LESS_THAN  &kp GREATER_THAN &kp PIPE            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans          &to 3          &trans
-                              &to 0           &magic_shift LEFT_SHIFT 0 &lt 2 ENTER        &kp BACKSPACE       &kp SPACE            &to 2
+&trans  &trans     &trans     &equals_greater &dash_greater             &kp PAGE_UP                &kp END             &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp UNDERSCORE  &trans         &trans
+&trans  &kp AMPS   &kp CARET  &kp QUESTION    &kp DOLLAR                &kp PAGE_DOWN              &ht HOME BACKSLASH  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON       &kp SEMICOLON  &trans
+&trans  &kp TILDE  &kp HASH   &kp AT_SIGN     &kp EXCL                  &ht GREATER_THAN LESS_THAN &kp PIPE            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans          &to 3          &trans
+                              &to 0           &magic_shift LEFT_SHIFT 0 &lt 2 ENTER                &kp BACKSPACE       &kp SPACE            &to 2
             >;
         };
 
@@ -167,9 +182,24 @@
             //                    | TO 0|MSHFT| CTRL|   | BKSP| ENT | TO 1|
             bindings = <
 &bt BT_SEL 4  &bt BT_SEL 3       &bt BT_SEL 2       &bt BT_SEL 1       &bt BT_SEL 0       &bt BT_CLR           &kp F12        &kp F7    &kp F8  &kp F9  &trans     &bootloader
-&trans  &kp CAPSLOCK       &trans             &kp LS(LA(LC(D)))  &kp LS(LA(LC(F)))  &trans               &kp F11        &kp F4    &kp F5  &kp F6  &trans     &trans
-&trans  &kp LC(LA(LS(Z)))  &kp LS(LC(LA(X)))  &kp LS(LA(LC(C)))  &kp LS(LC(LA(V)))  &kp LS(LC(LA(B)))    &kp F10        &kp F1    &kp F2  &kp F3  &trans     &trans
+&trans        &kp CAPSLOCK       &trans             &kp LS(LA(LC(D)))  &kp LS(LA(LC(F)))  &trans               &kp F11        &kp F4    &kp F5  &kp F6  &trans     &trans
+&trans        &kp LC(LA(LS(Z)))  &kp LS(LC(LA(X)))  &kp LS(LA(LC(C)))  &kp LS(LC(LA(V)))  &kp LS(LC(LA(B)))    &kp F10        &kp F1    &kp F2  &kp F3  &trans     &trans
                                               &to 0              &magic_shift LEFT_SHIFT 0     &lt 2 ENTER     &kp BACKSPACE  &kp SPACE &to 1
+            >;
+        };
+
+        special { // layer used to get easy access to arrows/shortcuts/brackets
+            display-name = "spec";
+            // -----------------------------------------------------------------------------------------
+            // | BT 4 | BT 3| BT 2| BT 1| BT 0|BTCLR|   | F12 |  F7 |  F8 |  F8 | TRNS| TRNS |
+            // | TRNS | CAPS| TRNS| MehD| MehF| TRNS|   | F11 |  F4 |  F5 |  F6 | ENT | TRNS |
+            // | TRNS | MehZ| MehX| MehC| MehV| MehB|   | F10 |  F1 |  F2 |  F3 | TRNS| TRNS |
+            //                    | TRNS| TRNS| TRNS|   | TRNS| TRNS| TRNS|
+            bindings = <
+&bt BT_SEL 4     &bt BT_SEL 3      &bt BT_SEL 2  &bt BT_SEL 1 &bt BT_SEL 0         &bt BT_CLR         &kp END             &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp UNDERSCORE  &trans         &trans
+&trans           &ht LC(LEFT) LEFT &kp DOWN      &kp UP       &ht LC(RIGHT) RIGHT  &kp LA(LC(TAB))    &ht HOME BACKSLASH  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON       &kp SEMICOLON  &trans
+&kp PRINTSCREEN  &kp LC(S)         &kp LC(Z)     &kp LC(X)    &ht LC(V) LC(C)      &kp LC(A)          &kp PIPE            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans          &to 3          &trans
+                                        &trans &trans &trans &trans &trans &trans
             >;
         };
     };
