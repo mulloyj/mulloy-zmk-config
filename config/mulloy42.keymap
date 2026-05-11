@@ -147,12 +147,12 @@
             display-name = "num";
             // -----------------------------------------------------------------------------------------
             // | TRNS | TRNS| LALT| WinE| CtlW| TAB |   |  +  |  7  |  8  |  9  |  *  | TRNS |
-            // | TRNS |Lt/Ct| DWN | UP  |Rt/Ct|ACtTb|   |  =  |  4  |  5  |  6  | ENT | TRNS |
+            // | TRNS |Lt/Ct| DWN | UP  |Rt/Ct|ACtTb|   |  =  |  4  |  5  |  6  |  %  | ENT  |
             // | PRS  | CtlS| CtlZ| CtlX| CtCV| CtlA|   |  /  |  1  | 2/, | 3/. | TO 3|  -   |
             //                    | TO 0|MSHFT|ACtSf|   | BKSP|  0  | TO 1|
             bindings = <
 &trans  &trans             &kp LALT   &kp LG(E)  &kp LC(W)            &kp TAB                   &ht PLUS MINUS &kp N7        &kp N8               &kp N9               &kp ASTERISK  &trans
-&trans  &ht LC(LEFT) LEFT  &kp DOWN   &kp UP     &ht LC(RIGHT) RIGHT  &kp LA(LC(TAB))           &kp EQUAL      &kp N4        &kp N5               &kp NUMBER_6         &kp ENTER     &trans
+&trans  &ht LC(LEFT) LEFT  &kp DOWN   &kp UP     &ht LC(RIGHT) RIGHT  &kp LA(LC(TAB))           &kp EQUAL      &kp N4        &kp N5               &kp NUMBER_6         &kp PRCNT     &kp ENTER
 &kp PRINTSCREEN  &kp LC(S) &kp LC(Z)  &kp LC(X)  &ht LC(V) LC(C)      &kp LC(A)                 &kp SLASH      &kp N1        &ht COMMA NUMBER_2   &ht PERIOD NUMBER_3  &to 3         &trans
                                       &to 0      &magic_shift LEFT_SHIFT 0       &sk LA(LC(LEFT_SHIFT))    &kp BACKSPACE  &kp N0        &to 1
             >;
