@@ -19,6 +19,14 @@
             bindings = <&kp>, <&kp>;
         };
 
+        mo_tog: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&tog>;
+        };
+
         hml: left_hand_positional_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -111,12 +119,12 @@
             // |  ESC |  Q  |  W  |  E   |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | DEL    |
             // |CAPS_W| A/Wn| S/Al| D/Ct | F/Sf|  G  |   |  H  | J/Sf | K/Al| L/Al| ;/Wn|  '/"/` |
             // |  TAB |  Z  |  X  |  C   |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |  -     |
-            //                    |Meh/FN|MSHFT| ENT |   | BKSP| SPACE| TO 1|
+            //                    |Meh/FN|MSHFT| ENT |   | BKSP| SPACE| sym |
             bindings = <
 &kp ESCAPE  &kp Q           &kp W           &kp E                &kp R                        &kp T               &kp Y          &kp U              &kp I            &kp O            &kp P               &kp DELETE
 &caps_word  &hml LEFT_WIN A &hml LEFT_ALT S &hml LCTRL D         &hml LEFT_SHIFT F            &kp G               &kp H          &hmr RIGHT_SHIFT J &hmr RCTRL K     &hmr RIGHT_ALT L &hmr RIGHT_WIN SEMI &td_quotes
 &kp TAB     &kp Z           &kp X           &kp C                &kp V                        &kp B               &kp N          &kp M              &kp COMMA        &kp DOT          &kp FSLH            &kp MINUS
-                                            &lt 3 LS(LA(LCTRL))  &magic_shift LEFT_SHIFT 0    &lt 2 ENTER         &kp BACKSPACE  &kp SPACE          &to 1
+                                            &lt 3 LS(LA(LCTRL))  &magic_shift LEFT_SHIFT 0    &lt 2 ENTER         &kp BACKSPACE  &kp SPACE          &mo_tog 1 1
             >;
         };
 
@@ -143,9 +151,9 @@
             // | PRS  | CtlS| CtlZ| CtlX| CtCV| CtlA|   |  /  |  1  | 2/, | 3/. | TO 3|  -   |
             //                    | TO 0|MSHFT|ACtSf|   | BKSP|  0  | TO 1|
             bindings = <
-&trans  &trans             &kp LALT   &kp LG(E)  &kp LC(W)            &kp TAB                   &kp PLUS       &kp N7        &kp N8               &kp N9               &kp ASTERISK  &trans
-&trans  &ht LC(LEFT) LEFT  &kp DOWN   &kp UP     &ht LC(RIGHT) RIGHT  &kp LA(LC(TAB))           &kp EQUAL      &kp NUMBER_4  &kp N5               &kp NUMBER_6         &kp ENTER     &trans
-&kp PRINTSCREEN  &kp LC(S) &kp LC(Z)  &kp LC(X)  &ht LC(V) LC(C)      &kp LC(A)                 &kp SLASH      &kp NUMBER_1  &ht COMMA NUMBER_2   &ht PERIOD NUMBER_3  &to 3         &kp MINUS
+&trans  &trans             &kp LALT   &kp LG(E)  &kp LC(W)            &kp TAB                   &ht PLUS MINUS &kp N7        &kp N8               &kp N9               &kp ASTERISK  &trans
+&trans  &ht LC(LEFT) LEFT  &kp DOWN   &kp UP     &ht LC(RIGHT) RIGHT  &kp LA(LC(TAB))           &kp EQUAL      &kp N4        &kp N5               &kp NUMBER_6         &kp ENTER     &trans
+&kp PRINTSCREEN  &kp LC(S) &kp LC(Z)  &kp LC(X)  &ht LC(V) LC(C)      &kp LC(A)                 &kp SLASH      &kp N1        &ht COMMA NUMBER_2   &ht PERIOD NUMBER_3  &to 3         &trans
                                       &to 0      &magic_shift LEFT_SHIFT 0       &sk LA(LC(LEFT_SHIFT))    &kp BACKSPACE  &kp N0        &to 1
             >;
         };
@@ -153,12 +161,12 @@
         function {
             display-name = "fn";
             // -----------------------------------------------------------------------------------------
-            // | TRNS | BT 3| BT 2| BT 1| BT 0|BTCLR|   | F12 |  F7 |  F8 |  F8 | TRNS| TRNS |
+            // | BT 4 | BT 3| BT 2| BT 1| BT 0|BTCLR|   | F12 |  F7 |  F8 |  F8 | TRNS| TRNS |
             // | TRNS | CAPS| TRNS| MehD| MehF| TRNS|   | F11 |  F4 |  F5 |  F6 | ENT | TRNS |
             // | TRNS | MehZ| MehX| MehC| MehV| MehB|   | F10 |  F1 |  F2 |  F3 | TRNS| TRNS |
             //                    | TO 0|MSHFT| CTRL|   | BKSP| ENT | TO 1|
             bindings = <
-&trans  &bt BT_SEL 3       &bt BT_SEL 2       &bt BT_SEL 1       &bt BT_SEL 0       &bt BT_CLR           &kp F12        &kp F7    &kp F8  &kp F9  &trans     &bootloader
+&bt BT_SEL 4  &bt BT_SEL 3       &bt BT_SEL 2       &bt BT_SEL 1       &bt BT_SEL 0       &bt BT_CLR           &kp F12        &kp F7    &kp F8  &kp F9  &trans     &bootloader
 &trans  &kp CAPSLOCK       &trans             &kp LS(LA(LC(D)))  &kp LS(LA(LC(F)))  &trans               &kp F11        &kp F4    &kp F5  &kp F6  &trans     &trans
 &trans  &kp LC(LA(LS(Z)))  &kp LS(LC(LA(X)))  &kp LS(LA(LC(C)))  &kp LS(LC(LA(V)))  &kp LS(LC(LA(B)))    &kp F10        &kp F1    &kp F2  &kp F3  &trans     &trans
                                               &to 0              &magic_shift LEFT_SHIFT 0     &lt 2 ENTER     &kp BACKSPACE  &kp SPACE &to 1
