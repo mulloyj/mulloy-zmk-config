@@ -183,7 +183,7 @@
             key-positions = <28 29>;
             bindings = <&bar_bar>;
         };
-    }
+    };
 
     keymap {
         compatible = "zmk,keymap";
