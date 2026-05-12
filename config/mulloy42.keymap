@@ -117,6 +117,27 @@
                 , <&macro_release &kp LALT &kp LCTRL>
                 , <&macro_tap     &kp V    &kp ENTER>;
         };
+
+        plus_plus: plus_plus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp PLUS &kp PLUS>;
+        };
+
+        amp_amp: amp_amp {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp AMPS &kp AMPS>;  
+        };
+
+        bar_bar: bar_bar {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp PIPE &kp PIPE>;  
+        };
     };
 
     combos {
@@ -144,8 +165,25 @@
             key-positions = <7 8 9 10>;
             bindings = <&kp F2>;
         };
-    };
 
+        combo_plus_plus {
+            timeout-ms = <50>;
+            key-positions = <4 5>;
+            bindings = <&plus_plus>;
+        };
+
+        combo_amp_amp {
+            timeout-ms = <50>;
+            key-positions = <16 17>;
+            bindings = <&amp_amp>;
+        };
+
+        combo_bar_bar {
+            timeout-ms = <50>;
+            key-positions = <28 29>;
+            bindings = <&bar_bar>;
+        };
+    }
 
     keymap {
         compatible = "zmk,keymap";
@@ -183,14 +221,14 @@
         upper {
             display-name = "num";
             // -----------------------------------------------------------------------------------------
-            // | TRNS | TRNS| LALT| WinE| CtlW| TAB |   |  +  |  7  |  8  |  9  |  *  | TRNS |
+            // | TRNS | TRNS| LALT| WinE| CtlW| TAB |   |  +  |  7  |  8  |  9  |  *  | / |
             // | TRNS |Lt/Ct| DWN | UP  |Rt/Ct|ACtTb|   |  =  |  4  |  5  |  6  |  %  | ENT  |
-            // | PRS  | CtlS| CtlZ| CtlX| CtCV| CtlA|   |  /  |  1  | 2/, | 3/. | TO 3|  -   |
+            // | PRS  | CtlS| CtlZ| CtlX| CtCV| CtlA|   |  -  |  1  | 2/, | 3/. | TO 3| TRNS |
             //                    | TO 0|MSHFT|ACtSf|   | BKSP|  0  | TO 1|
             bindings = <
-&trans  &trans             &kp LALT   &kp LG(E)  &kp LC(W)            &kp TAB                   &ht PLUS MINUS &kp N7        &kp N8               &kp N9               &kp ASTERISK  &trans
+&trans  &trans             &kp LALT   &kp LG(E)  &kp LC(W)            &kp TAB                   &kp PLUS       &kp N7        &kp N8               &kp N9               &kp ASTERISK  &kp SLASH
 &trans  &ht LC(LEFT) LEFT  &kp DOWN   &kp UP     &ht LC(RIGHT) RIGHT  &kp LA(LC(TAB))           &kp EQUAL      &kp N4        &kp N5               &kp NUMBER_6         &kp PRCNT     &kp ENTER
-&kp PRINTSCREEN  &kp LC(S) &kp LC(Z)  &kp LC(X)  &ht LC(V) LC(C)      &kp LC(A)                 &kp SLASH      &kp N1        &ht COMMA NUMBER_2   &ht PERIOD NUMBER_3  &to 3         &trans
+&kp PRINTSCREEN  &kp LC(S) &kp LC(Z)  &kp LC(X)  &ht LC(V) LC(C)      &kp LC(A)                 &kp MINUS      &kp N1        &ht COMMA NUMBER_2   &ht PERIOD NUMBER_3  &to 3         &trans
                                       &to 0      &magic_shift LEFT_SHIFT 0       &sk LA(LC(LEFT_SHIFT))    &kp BACKSPACE  &kp N0        &to 1
             >;
         };
