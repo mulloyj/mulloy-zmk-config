@@ -183,6 +183,20 @@
             key-positions = <28 29>;
             bindings = <&bar_bar>;
         };
+
+        combo_period {
+            timeout-ms = <50>;
+            key-positions = <33 34>;
+            bindings = <&kp PERIOD>;
+            layers = <2>;
+        };
+
+        combo_comma {
+            timeout-ms = <50>;
+            key-positions = <32 33>;
+            bindings = <&kp COMMA>;
+            layers = <2>;
+        };
     };
 
     keymap {
@@ -226,9 +240,9 @@
             // | PRS  | CtlS| CtlZ| CtlX| CtCV| CtlA|   |  -  |  1  | 2/, | 3/. | TO 3| TRNS |
             //                    | TO 0|MSHFT|ACtSf|   | BKSP|  0  | TO 1|
             bindings = <
-&trans  &trans             &kp LALT   &kp LG(E)  &kp LC(W)            &kp TAB                   &kp PLUS       &kp N7        &kp N8               &kp N9               &kp ASTERISK  &kp SLASH
-&trans  &ht LC(LEFT) LEFT  &kp DOWN   &kp UP     &ht LC(RIGHT) RIGHT  &kp LA(LC(TAB))           &kp EQUAL      &kp N4        &kp N5               &kp NUMBER_6         &kp PRCNT     &kp ENTER
-&kp PRINTSCREEN  &kp LC(S) &kp LC(Z)  &kp LC(X)  &ht LC(V) LC(C)      &kp LC(A)                 &kp MINUS      &kp N1        &ht COMMA NUMBER_2   &ht PERIOD NUMBER_3  &to 3         &trans
+&trans  &trans             &kp LALT   &kp LG(E)  &kp LC(W)            &kp TAB                   &kp PLUS       &kp N7        &kp N8     &kp N9          &kp ASTERISK  &kp SLASH
+&trans  &ht LC(LEFT) LEFT  &kp DOWN   &kp UP     &ht LC(RIGHT) RIGHT  &kp LA(LC(TAB))           &kp EQUAL      &kp N4        &kp N5     &kp N6          &kp PRCNT     &kp ENTER
+&kp PRINTSCREEN  &kp LC(S) &kp LC(Z)  &kp LC(X)  &ht LC(V) LC(C)      &kp LC(A)                 &kp MINUS      &kp N1        &kp N2     &kp N3          &to 3         &trans
                                       &to 0      &magic_shift LEFT_SHIFT 0       &sk LA(LC(LEFT_SHIFT))    &kp BACKSPACE  &kp N0        &to 1
             >;
         };
