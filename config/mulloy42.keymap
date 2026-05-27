@@ -156,26 +156,26 @@
         };
 
         brackets: brackets {
-            compatible = "zmk,behavior-macro";
+            compatible = "zmk,behavior-macro-two-param";
             #binding-cells = <2>;
             bindings
-                = <&o_param_1to1> 
-                , <&o_press &kp MACRO_PLACEHOLDER> 
-                , <&o_param_2to1> 
-                , <&o_press &kp MACRO_PLACEHOLDER>
-                , <&o_param_1to1>
+                = <&macro_param_1to1> 
+                , <&macro_press &kp MACRO_PLACEHOLDER> 
+                , <&macro_param_2to1> 
+                , <&macro_press &kp MACRO_PLACEHOLDER>
+                , <&macro_param_1to1>
                 , <&kp LEFT>;
         };
 
         brackets_semi: brackets_semi {
-            compatible = "zmk,behavior-macro";
+            compatible = "zmk,behavior-macro-two-param";
             #binding-cells = <2>;
             bindings
-                = <&o_param_1to1> 
-                , <&o_press &kp MACRO_PLACEHOLDER> 
-                , <&o_param_2to1> 
-                , <&o_press &kp MACRO_PLACEHOLDER>
-                , <&o_param_1to1>
+                = <&macroo_param_1to1> 
+                , <&macro_press &kp MACRO_PLACEHOLDER> 
+                , <&macro_param_2to1> 
+                , <&macro_press &kp MACRO_PLACEHOLDER>
+                , <&macro_param_1to1>
                 , <&kp SEMI>
                 , <&kp LEFT>;
         };
