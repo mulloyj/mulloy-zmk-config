@@ -318,14 +318,14 @@
             display-name = "base";
             // -----------------------------------------------------------------------------------------
             // |  ESC |  Q  |  W  |  E   |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | DEL    |
-            // |CAPS_W| A/Wn| S/Al| D/Ct | F/Sf|  G  |   |  H  | J/Sf | K/Al| L/Al| ;/Wn|  '/"/` |
+            // |CAPS_W| A/Wn| S/Al| D/Ct | F/Sf|  G  |   |  H  | J/Sf | K/Ct| L/Al| ;/Wn|  '/"/` |
             // |  TAB |  Z  |  X  |  C   |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |  -     |
             //                    |Meh/FN|MSHFT| ENT |   | BKSP| SPACE| sym |
             bindings = <
 &kp ESCAPE  &kp Q           &kp W           &kp E                   &kp R                        &kp T               &kp Y          &kp U              &kp I            &kp O            &kp P               &kp DELETE
 &caps_word  &hml LEFT_WIN A &hml LEFT_ALT S &hml LCTRL D            &hml LEFT_SHIFT F            &kp G               &kp H          &hmr RIGHT_SHIFT J &hmr RCTRL K     &hmr RIGHT_ALT L &hmr RIGHT_WIN SEMI &td_quotes
 &kp TAB     &kp Z           &kp X           &kp C                   &kp V                        &kp B               &kp N          &kp M              &kp COMMA        &kp DOT          &kp FSLH            &kp MINUS
-                                            &lt_sk 3 LS(LA(LCTRL))  &magic_shift LEFT_SHIFT 0    &lt 2 ENTER         &kp BACKSPACE  &mo 1 SPACE          &mo_tog 1 1
+                                            &lt_sk 3 LS(LA(LCTRL))  &magic_shift LEFT_SHIFT 0    &lt 2 ENTER         &kp BACKSPACE  &lt 1 SPACE        &mo_tog 1 1
             >;
         };
 
