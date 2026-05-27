@@ -252,56 +252,56 @@
         combo_paren {
             timeout-ms = <50>;
             key-positions = <19 20>;
-            bindings = <&brackets LPAR RPAR>;
+            bindings = <&brackets LEFT_PARENTHESIS RIGHT_PARENTHESIS>;
             layers = <1>;
         };
 
         combo_square {
             timeout-ms = <50>;
             key-positions = <31 32>;
-            bindings = <&brackets LBKT RBKT>;
+            bindings = <&brackets LEFT_BRACKET RIGHT_BRACKET>;
             layers = <1>;
         };
 
         combo_curly {
             timeout-ms = <50>;
             key-positions = <7 8>;
-            bindings = <&brackets LCBR RCBR>;
+            bindings = <&brackets LEFT_BRACE RIGHT_BRACE>;
             layers = <1>;
         };
 
         combo_angle {
             timeout-ms = <50>;
             key-positions = <28 29>;
-            bindings = <&brackets LPAR RPAR>;
+            bindings = <&brackets GREATER_THAN LESS_THAN>;
             layers = <1>;
         };
 
         combo_paren_semi {
             timeout-ms = <50>;
             key-positions = <19 20 21>;
-            bindings = <&brackets_semi LPAR RPAR>;
+            bindings = <&brackets_semi LEFT_PARENTHESIS RIGHT_PARENTHESIS>;
             layers = <1>;
         };
 
         combo_square_semi {
             timeout-ms = <50>;
             key-positions = <31 32 33>;
-            bindings = <&brackets_semi LBKT RBKT>;
+            bindings = <&brackets_semi LEFT_BRACKET RIGHT_BRACKET>;
             layers = <1>;
         };
 
         combo_curly_semi {
             timeout-ms = <50>;
             key-positions = <7 8 9>;
-            bindings = <&brackets_semi LCBR RCBR>;
+            bindings = <&brackets_semi LEFT_BRACE RIGHT_BRACE>;
             layers = <1>;
         };
 
         combo_angle_semi {
             timeout-ms = <50>;
             key-positions = <27 28 29>;
-            bindings = <&brackets_semi LPAR RPAR>;
+            bindings = <&brackets_semi GREATER_THAN LESS_THAN>;
             layers = <1>;
         };
     };
