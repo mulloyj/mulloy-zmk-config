@@ -8,6 +8,11 @@
         quick-tap-ms = <150>;
 };
 
+&caps_word {
+    // trying to fix issues with bindings to ctrl+ALPHA while caps_word is active
+    continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
+};
+
 / { 
     behaviors {
         ht: hold_tap {
@@ -171,7 +176,7 @@
             compatible = "zmk,behavior-macro-two-param";
             #binding-cells = <2>;
             bindings
-                = <&macroo_param_1to1> 
+                = <&macro_param_1to1> 
                 , <&macro_press &kp MACRO_PLACEHOLDER> 
                 , <&macro_param_2to1> 
                 , <&macro_press &kp MACRO_PLACEHOLDER>
