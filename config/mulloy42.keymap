@@ -154,6 +154,31 @@
             bindings
                 = <&kp J &kp O &kp S &kp H &kp AT &kp M &kp U &kp L &kp L &kp O &kp Y &kp DOT &kp C &kp A>;
         };
+
+        brackets: brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <2>;
+            bindings
+                = <&o_param_1to1> 
+                , <&o_press &kp MACRO_PLACEHOLDER> 
+                , <&o_param_2to1> 
+                , <&o_press &kp MACRO_PLACEHOLDER>
+                , <&o_param_1to1>
+                , <&kp LEFT>;
+        };
+
+        brackets_semi: brackets_semi {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <2>;
+            bindings
+                = <&o_param_1to1> 
+                , <&o_press &kp MACRO_PLACEHOLDER> 
+                , <&o_param_2to1> 
+                , <&o_press &kp MACRO_PLACEHOLDER>
+                , <&o_param_1to1>
+                , <&kp SEMI>
+                , <&kp LEFT>;
+        };
     };
 
 
@@ -175,12 +200,14 @@
             timeout-ms = <50>;
             key-positions = <7 8 9>;
             bindings = <&excel_paste_value>;
+            layers = <3>;
         };
 
         combo_excel_f2 {
             timeout-ms = <50>;
             key-positions = <7 8 9 10>;
             bindings = <&kp F2>;
+            layers = <3>;
         };
 
         combo_plus_plus {
@@ -221,6 +248,62 @@
             bindings = <&email_josh>;
             layers = <0>;
         };
+
+        combo_paren {
+            timeout-ms = <50>;
+            key-positions = <19 20>;
+            bindings = <&brackets LPAR RPAR>;
+            layers = <1>;
+        };
+
+        combo_square {
+            timeout-ms = <50>;
+            key-positions = <31 32>;
+            bindings = <&brackets LBKT RBKT>;
+            layers = <1>;
+        };
+
+        combo_curly {
+            timeout-ms = <50>;
+            key-positions = <7 8>;
+            bindings = <&brackets LCBR RCBR>;
+            layers = <1>;
+        };
+
+        combo_angle {
+            timeout-ms = <50>;
+            key-positions = <28 29>;
+            bindings = <&brackets LPAR RPAR>;
+            layers = <1>;
+        };
+
+        combo_paren_semi {
+            timeout-ms = <50>;
+            key-positions = <19 20 21>;
+            bindings = <&brackets_semi LPAR RPAR>;
+            layers = <1>;
+        };
+
+        combo_square_semi {
+            timeout-ms = <50>;
+            key-positions = <31 32 33>;
+            bindings = <&brackets_semi LBKT RBKT>;
+            layers = <1>;
+        };
+
+        combo_curly_semi {
+            timeout-ms = <50>;
+            key-positions = <7 8 9>;
+            bindings = <&brackets_semi LCBR RCBR>;
+            layers = <1>;
+        };
+
+        combo_angle_semi {
+            timeout-ms = <50>;
+            key-positions = <27 28 29>;
+            bindings = <&brackets_semi LPAR RPAR>;
+            layers = <1>;
+        };
     };
 
     keymap {
@@ -237,7 +320,7 @@
 &kp ESCAPE  &kp Q           &kp W           &kp E                   &kp R                        &kp T               &kp Y          &kp U              &kp I            &kp O            &kp P               &kp DELETE
 &caps_word  &hml LEFT_WIN A &hml LEFT_ALT S &hml LCTRL D            &hml LEFT_SHIFT F            &kp G               &kp H          &hmr RIGHT_SHIFT J &hmr RCTRL K     &hmr RIGHT_ALT L &hmr RIGHT_WIN SEMI &td_quotes
 &kp TAB     &kp Z           &kp X           &kp C                   &kp V                        &kp B               &kp N          &kp M              &kp COMMA        &kp DOT          &kp FSLH            &kp MINUS
-                                            &lt_sk 3 LS(LA(LCTRL))  &magic_shift LEFT_SHIFT 0    &lt 2 ENTER         &kp BACKSPACE  &kp SPACE          &mo_tog 1 1
+                                            &lt_sk 3 LS(LA(LCTRL))  &magic_shift LEFT_SHIFT 0    &lt 2 ENTER         &kp BACKSPACE  &mo 1 SPACE          &mo_tog 1 1
             >;
         };
 
@@ -246,12 +329,12 @@
             // ----------------------------------------------------------------------------------------
             // | TRNS | TRNS| TRNS|  => |  -> | PG_UP   |   | END |  {  |  }  |  _  | TRNS| TRNS |
             // | TRNS |  &  |  ^  |  ?  |  $  | PG_DOWN |   | \/Hm|  (  |  )  |  :  |  ;  | TRNS |
-            // | TRNS |  ~  |  #  |  @  |  !  |  </>    |   |  |  |  [  |  ]  | TRNS| TO 3| TRNS |
+            // | TRNS |  ~  |  #  |  @  |  !  |  </>    |   |  |  |  [  |  ]  | TRNS| TRNS| TO 3 |
             //                    | TO 0|MSHFT| ENT/NM  |   | BKSP| SPC | TO 2|
             bindings = <
 &trans  &trans     &trans     &equals_greater &dash_greater             &kp PAGE_UP                &kp END             &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp UNDERSCORE  &trans         &trans
 &trans  &kp AMPS   &kp CARET  &kp QUESTION    &kp DOLLAR                &kp PAGE_DOWN              &ht HOME BACKSLASH  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON       &kp SEMICOLON  &trans
-&trans  &kp TILDE  &kp HASH   &kp AT_SIGN     &kp EXCL                  &ht GREATER_THAN LESS_THAN &kp PIPE            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans          &to 3          &trans
+&trans  &kp TILDE  &kp HASH   &kp AT_SIGN     &kp EXCL                  &ht GREATER_THAN LESS_THAN &kp PIPE            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans          &trans         &to 3 
                               &to 0           &magic_shift LEFT_SHIFT 0 &lt 2 ENTER                &kp BACKSPACE       &kp SPACE            &to 2
             >;
         };
@@ -261,12 +344,12 @@
             // -----------------------------------------------------------------------------------------
             // | TRNS | TRNS| LALT| WinE| CtlW| TAB |   |  +  |  7  |  8  |  9  |  *  | / |
             // | TRNS |Lt/Ct| DWN | UP  |Rt/Ct|ACtTb|   |  =  |  4  |  5  |  6  |  %  | ENT  |
-            // | PRS  | CtlS| CtlZ| CtlX| CtCV| CtlA|   |  -  |  1  | 2/, | 3/. | TO 3| TRNS |
+            // | PRS  | CtlS| CtlZ| CtlX| CtCV| CtlA|   |  -  |  1  | 2/, | 3/. | TRNS| TO 3 |
             //                    | TO 0|MSHFT|ACtSf|   | BKSP|  0  | TO 1|
             bindings = <
 &trans  &trans             &kp LALT   &kp LG(E)  &kp LC(W)            &kp TAB                   &kp PLUS       &kp N7        &kp N8     &kp N9          &kp ASTERISK  &kp SLASH
 &trans  &ht LC(LEFT) LEFT  &kp DOWN   &kp UP     &ht LC(RIGHT) RIGHT  &kp LA(LC(TAB))           &kp EQUAL      &kp N4        &kp N5     &kp N6          &kp PRCNT     &kp ENTER
-&kp PRINTSCREEN  &kp LC(S) &kp LC(Z)  &kp LC(X)  &ht LC(V) LC(C)      &kp LC(A)                 &kp MINUS      &kp N1        &kp N2     &kp N3          &to 3         &trans
+&kp PRINTSCREEN  &kp LC(S) &kp LC(Z)  &kp LC(X)  &ht LC(V) LC(C)      &kp LC(A)                 &kp MINUS      &kp N1        &kp N2     &kp N3          &trans        &to 3
                                       &to 0      &magic_shift LEFT_SHIFT 0       &sk LA(LC(LEFT_SHIFT))    &kp BACKSPACE  &kp N0        &to 1
             >;
         };
@@ -276,12 +359,12 @@
             // -----------------------------------------------------------------------------------------
             // | BT 4 | BT 3| BT 2| BT 1| BT 0|BTCLR|   | F12 |  F7 |  F8 |  F8 | TRNS| TRNS |
             // | TRNS | CAPS| TRNS| MehD| MehF| TRNS|   | F11 |  F4 |  F5 |  F6 | ENT | TRNS |
-            // | TRNS | MehZ| MehX| MehC| MehV| MehB|   | F10 |  F1 |  F2 |  F3 | TRNS| TRNS |
+            // | TRNS | MehZ| MehX| MehC| MehV| MehB|   | F10 |  F1 |  F2 |  F3 | TRNS| TO 2 |
             //                    | TO 0|MSHFT| CTRL|   | BKSP| ENT | TO 1|
             bindings = <
 &bt BT_SEL 4  &bt BT_SEL 3       &bt BT_SEL 2       &bt BT_SEL 1       &bt BT_SEL 0       &bt BT_CLR           &kp F12        &kp F7    &kp F8  &kp F9  &trans     &bootloader
 &trans        &kp CAPSLOCK       &trans             &kp LS(LA(LC(D)))  &kp LS(LA(LC(F)))  &trans               &kp F11        &kp F4    &kp F5  &kp F6  &trans     &trans
-&trans        &kp LC(LA(LS(Z)))  &kp LS(LC(LA(X)))  &kp LS(LA(LC(C)))  &kp LS(LC(LA(V)))  &kp LS(LC(LA(B)))    &kp F10        &kp F1    &kp F2  &kp F3  &trans     &trans
+&trans        &kp LC(LA(LS(Z)))  &kp LS(LC(LA(X)))  &kp LS(LA(LC(C)))  &kp LS(LC(LA(V)))  &kp LS(LC(LA(B)))    &kp F10        &kp F1    &kp F2  &kp F3  &trans     &to 2
                                               &to 0              &magic_shift LEFT_SHIFT 0     &lt 2 ENTER     &kp BACKSPACE  &kp SPACE &to 1
             >;
         };
