@@ -168,7 +168,6 @@
                 , <&macro_press &kp MACRO_PLACEHOLDER> 
                 , <&macro_param_2to1> 
                 , <&macro_press &kp MACRO_PLACEHOLDER>
-                , <&macro_param_1to1>
                 , <&kp LEFT>;
         };
 
@@ -180,8 +179,8 @@
                 , <&macro_press &kp MACRO_PLACEHOLDER> 
                 , <&macro_param_2to1> 
                 , <&macro_press &kp MACRO_PLACEHOLDER>
-                , <&macro_param_1to1>
                 , <&kp SEMI>
+                , <&kp LEFT>
                 , <&kp LEFT>;
         };
     };
@@ -219,18 +218,21 @@
             timeout-ms = <50>;
             key-positions = <4 5>;
             bindings = <&plus_plus>;
+            layers = <0>;
         };
 
         combo_amp_amp {
             timeout-ms = <50>;
             key-positions = <16 17>;
             bindings = <&amp_amp>;
+            layers = <0>;
         };
 
         combo_bar_bar {
             timeout-ms = <50>;
             key-positions = <28 29>;
             bindings = <&bar_bar>;
+            layers = <0>;
         };
 
         combo_period {
@@ -377,14 +379,14 @@
         special { // layer used to get easy access to arrows/shortcuts/brackets
             display-name = "spec";
             // -----------------------------------------------------------------------------------------
-            // | BT 4 | BT 3| BT 2| BT 1| BT 0|BTCLR|   | F12 |  F7 |  F8 |  F8 | TRNS| TRNS |
-            // | TRNS | CAPS| TRNS| MehD| MehF| TRNS|   | F11 |  F4 |  F5 |  F6 | ENT | TRNS |
-            // | TRNS | MehZ| MehX| MehC| MehV| MehB|   | F10 |  F1 |  F2 |  F3 | TRNS| TRNS |
+            // | BT 4 | BT 3| BT 2| BT 1| BT 0|BTCLR|   | END |  {  |  }  |  _  | TRNS| TRNS |
+            // | TRNS |Lt/Ct| DWN | UP  |Rt/Ct|ACtTb|   | \/Hm|  (  |  )  |  :  |  ;  | TRNS |
+            // | TRNS | CtlS| CtlZ| CtlX| CtCV| CtlA|   |  |  |  [  |  ]  | TRNS| TRNS| TO 3 |
             //                    | TRNS| TRNS| TRNS|   | TRNS| TRNS| TRNS|
             bindings = <
 &bt BT_SEL 4     &bt BT_SEL 3      &bt BT_SEL 2  &bt BT_SEL 1 &bt BT_SEL 0         &bt BT_CLR         &kp END             &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp UNDERSCORE  &trans         &trans
 &trans           &ht LC(LEFT) LEFT &kp DOWN      &kp UP       &ht LC(RIGHT) RIGHT  &kp LA(LC(TAB))    &ht HOME BACKSLASH  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON       &kp SEMICOLON  &trans
-&kp PRINTSCREEN  &kp LC(S)         &kp LC(Z)     &kp LC(X)    &ht LC(V) LC(C)      &kp LC(A)          &kp PIPE            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans          &to 3          &trans
+&kp PRINTSCREEN  &kp LC(S)         &kp LC(Z)     &kp LC(X)    &ht LC(V) LC(C)      &kp LC(A)          &kp PIPE            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans          &trans         &to 3 
                                         &trans &trans &trans &trans &trans &trans
             >;
         };
