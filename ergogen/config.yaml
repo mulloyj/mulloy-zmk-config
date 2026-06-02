@@ -131,11 +131,11 @@ outlines:
       fillet: 3
   _mcu:
     - what: rectangle
-      where: [mcu]
+      where: [mcu, mirror_mcu]
       size: [17.78, 33]
       fillet: 1
     - what: rectangle
-      where: [mcu]
+      where: [mcu, mirror_mcu]
       size: [8.94, 7.35]
       fillet: 0.1
       operation: stack
@@ -143,18 +143,18 @@ outlines:
         shift: [0, 33/2-7.35/2+0.7]
   _display:
     - what: rectangle
-      where: [display]
+      where: [display, mirror_display]
       size: [14, 36]
       fillet: 0.5
     - what: rectangle
-      where: [display]
+      where: [display, mirror_display]
       size: [12.82, 2.66]
       operation: stack
       fillet: 0.1
       adjust:
         shift: [0, -16.7]
     - what: rectangle
-      where: [display]
+      where: [display, mirror_display]
       size: [10.8, 24.6]
       operation: stack
       adjust:
@@ -277,13 +277,38 @@ outlines:
     - what: rectangle
       where: [key_1_5u]
       size: [1.5kx, ky]
+    - what: outline
+      operation: stack
+      name: _mcu
+    - what: outline
+      operation: stack
+      name: _display
+    - what: outline
+      operation: stack
+      name: _screw_heads
     - what: rectangle
-      where: [mcu, mirror_mcu]
-      size: [18, 33]
-      fillet: 2
+      where: matrix_inner_top
+      size: [3.5, 7.5]
+      adjust:
+        shift: [px + 7.25, -2py]
     - what: rectangle
-      where: [display, mirror_display]
-      size: [18, 36]
+      where: mirror_matrix_inner_top
+      size: [3.5, 7.5]
+      adjust:
+        shift: [px + 7.25, -2py]
+        rotate: 180
+    - what: rectangle
+      where: thumbfan_inner_thumb
+      size: [3.5, 4.5]
+      adjust:
+        shift: [15, -5]
+        rotate: 238
+    - what: rectangle
+      where: mirror_thumbfan_inner_thumb
+      size: [3.5, 4.5]
+      adjust:
+        shift: [15, -5]
+        rotate: 238
     - what: outline
       operation: stack
       name: left_pcb_outline
