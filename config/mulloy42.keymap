@@ -364,13 +364,13 @@
         function {
             display-name = "fn";
             // -----------------------------------------------------------------------------------------
-            // | BT 4 | BT 3| BT 2| BT 1| BT 0|BTCLR|   | F12 |  F7 |  F8 |  F8 | TRNS| TRNS |
-            // | TRNS | CAPS| TRNS| MehD| MehF| TRNS|   | F11 |  F4 |  F5 |  F6 | ENT | TRNS |
+            // | BT 4 | BT 3| BT 2| BT 1| BT 0|BTCLR|   | F12 |  F7 |  F8 |  F8 | TRNS| BOOT |
+            // | TRNS | CAPS| TRNS| MehD| MehF| TRNS|   | F11 |  F4 |  F5 |  F6 | TRNS| TO 5 |
             // | TRNS | MehZ| MehX| MehC| MehV| MehB|   | F10 |  F1 |  F2 |  F3 | TRNS| TO 2 |
             //                    | TO 0|MSHFT| CTRL|   | BKSP| ENT | TO 1|
             bindings = <
 &bt BT_SEL 4  &bt BT_SEL 3       &bt BT_SEL 2       &bt BT_SEL 1       &bt BT_SEL 0       &bt BT_CLR           &kp F12        &kp F7    &kp F8  &kp F9  &trans     &bootloader
-&trans        &kp CAPSLOCK       &trans             &kp LS(LA(LC(D)))  &kp LS(LA(LC(F)))  &trans               &kp F11        &kp F4    &kp F5  &kp F6  &trans     &trans
+&trans        &kp CAPSLOCK       &trans             &kp LS(LA(LC(D)))  &kp LS(LA(LC(F)))  &trans               &kp F11        &kp F4    &kp F5  &kp F6  &trans     &to 5
 &trans        &kp LC(LA(LS(Z)))  &kp LS(LC(LA(X)))  &kp LS(LA(LC(C)))  &kp LS(LC(LA(V)))  &kp LS(LC(LA(B)))    &kp F10        &kp F1    &kp F2  &kp F3  &trans     &to 2
                                               &to 0              &magic_shift LEFT_SHIFT 0     &lt 2 ENTER     &kp BACKSPACE  &kp SPACE &to 1
             >;
@@ -388,6 +388,17 @@
 &trans           &ht LC(LEFT) LEFT &kp DOWN      &kp UP       &ht LC(RIGHT) RIGHT  &kp LA(LC(TAB))    &ht HOME BACKSLASH  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON       &kp SEMICOLON  &trans
 &kp PRINTSCREEN  &kp LC(S)         &kp LC(Z)     &kp LC(X)    &ht LC(V) LC(C)      &kp LC(A)          &kp PIPE            &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans          &trans         &to 3 
                                         &trans &trans &trans &trans &trans &trans
+            >;
+        };
+
+        valorant { // layer used to play valorant
+            display-name = "val";
+            bindings = <
+// LEFT HALF (Active)                                        // RIGHT HALF (Disabled)
+&ht ESC TAB &ht F1 N1  &kp Q  &kp W     &kp E  &kp R         &none &none &none &none &none &none
+&ht F4 N4   &kp LSHIFT &kp A  &kp S     &kp D  &kp F         &none &none &none &none &none &none
+&ht M B     &ht F2 N2  &kp G  &kp X     &kp C  &ht F3 N3     &none &none &none &none &none &none
+                       &kp Z  &kp SPACE &kp LCTRL            &to 0 &to 0 &to 0
             >;
         };
     };
