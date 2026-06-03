@@ -315,6 +315,42 @@ outlines:
     - what: outline
       operation: stack
       name: right_pcb_outline
+  left_case_blueprint:
+    # 1. Bare Left PCB outline
+    - what: outline
+      name: left_pcb_outline
+
+    # 2. Left MCU & USB Port
+    - what: rectangle
+      where: [mcu]
+      size: [8.94, 7.35]
+      fillet: 0.1
+      operation: stack
+      adjust:
+        shift: [0, 33/2-7.35/2+0.7]
+
+    # 4. Left Screw Holes explicitly
+    - what: circle
+      where: [screw_1, screw_2, screw_3, screw_4]
+      radius: 4.3/2
+      operation: stack
+
+    # 5. Left Power Switch
+    - what: rectangle
+      where: matrix_inner_top
+      size: [7.5, 3.5]
+      operation: stack
+      adjust:
+        shift: [px + 7.25, -2py]
+
+    # 6. Left Reset Switch
+    - what: rectangle
+      where: thumbfan_inner_thumb
+      size: [4.5, 3.5]
+      operation: stack
+      adjust:
+        shift: [15, -5]
+        rotate: 238
 pcbs:
   mulloy42_left:
     template: kicad8
