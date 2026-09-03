@@ -429,10 +429,10 @@
             display-name = "val";
             bindings = <
 // LEFT HALF (Active)                                        // RIGHT HALF (Disabled)
-&ht TAB ESC &ht F1 N1  &kp Q  &kp W     &kp E  &kp R         &none &none &none &none &none &none
-&ht F4 N4   &kp LSHIFT &kp A  &kp S     &kp D  &kp F         &none &none &none &none &none &none
-&ht M B     &ht F2 N2  &kp G  &kp X     &kp C  &ht F3 N3     &none &none &none &none &none &none
-                       &kp Z  &kp SPACE &kp LCTRL            &to 0 &to 0 &to 0
+&ht TAB ESC &kp Z  &kp Q  &kp W     &kp E  &ht N4 R         &none &none &none &none &none &none
+&kp CAPS   &kp LSHIFT &kp A  &kp S     &kp D  &kp F         &none &none &none &none &none &none
+&KP B     &ht F2 N2  &kp G  &kp X     &kp C  &ht F3 N3     &none &none &none &none &none &none
+                       &ht F1 N1  &kp SPACE &kp LCTRL            &to 0 &to 0 &to 0
             >;
         };
     };
