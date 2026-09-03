@@ -329,24 +329,24 @@
         };
 
         combo_esc_base {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <1 2>;
             bindings = <&base_kp ESC>;
-            layers = <1,2,3,4,5>;
+            layers = <0 1 2 3 4>;
         };
 
         combo_caps_base {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <13 14>;
             bindings = <&base_caps>;
-            layers = <1,2,3,4,5>;
+            layers = <0 1 2 3 4>;
         };
 
         combo_del_base {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             key-positions = <9 10>;
             bindings = <&base_kp DELETE>;
-            layers = <1,2,3,4,5>;
+            layers = <0 1 2 3 4>;
         };
     };
 
