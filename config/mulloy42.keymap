@@ -167,11 +167,11 @@
                 = <&macro_press   &kp LSHIFT>
                 , <&macro_tap     &kp J>
                 , <&macro_release &kp LSHIFT>
-                , <&kp O &kp S &kp H &kp U &kp A &kp SPACE>
+                , <&macro_tap     &kp O &kp S &kp H &kp U &kp A &kp SPACE>
                 , <&macro_press   &kp LSHIFT>
                 , <&macro_tap     &kp M>
                 , <&macro_release &kp LSHIFT>
-                , <&kp U &kp L &kp L &kp O &kp Y>;
+                , <&macro_tap     &kp U &kp L &kp L &kp O &kp Y>;
         };
 
         brackets: brackets {
