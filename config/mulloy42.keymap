@@ -160,6 +160,20 @@
                 = <&kp J &kp O &kp S &kp H &kp AT &kp M &kp U &kp L &kp L &kp O &kp Y &kp DOT &kp C &kp A>;
         };
 
+        name_josh: name_josh {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press   &kp LSHIFT>
+                , <&macro_tap     &kp J>
+                , <&macro_release &kp LSHIFT>
+                , <&kp O &kp S &kp H &kp U &kp A &kp SPACE>
+                , <&macro_press   &kp LSHIFT>
+                , <&macro_tap     &kp M>
+                , <&macro_release &kp LSHIFT>
+                , <&kp U &kp L &kp L &kp O &kp Y>;
+        };
+
         brackets: brackets {
             compatible = "zmk,behavior-macro-two-param";
             #binding-cells = <2>;
@@ -208,6 +222,13 @@
             timeout-ms = <50>;
             key-positions = <18 19>;
             bindings = <&kp TAB>;
+        };
+
+        combo_name {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&name_josh>;
+            layers = <3>;
         };
 
         combo_special_layer {
@@ -330,21 +351,21 @@
 
         combo_esc_base {
             timeout-ms = <30>;
-            key-positions = <1 2>;
+            key-positions = <1 2 3>;
             bindings = <&base_kp ESC>;
             layers = <0 1 2 3 4>;
         };
 
         combo_caps_base {
             timeout-ms = <30>;
-            key-positions = <13 14>;
+            key-positions = <13 14 15>;
             bindings = <&base_caps>;
             layers = <0 1 2 3 4>;
         };
 
         combo_del_base {
             timeout-ms = <30>;
-            key-positions = <9 10>;
+            key-positions = <8 9 10>;
             bindings = <&base_kp DELETE>;
             layers = <0 1 2 3 4>;
         };
